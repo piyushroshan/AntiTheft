@@ -24,8 +24,5 @@ Things you may want to cover:
 * ...
 AntiTheft:
 
-LaptopDetails: macaddress:string:index, nickname:string, description:text, user_id:integer, stolen:boolean, secret_key:string
-rails g scaffold Logs ip_address:string device:references 
-rails g bootstrap:themed Logs
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
