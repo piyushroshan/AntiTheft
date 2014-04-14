@@ -73,7 +73,11 @@
 
   <ul class="link-list" role="directory">
     
+    <li ><a href="#method-i-activation_instructions">#activation_instructions</a>
+    
     <li ><a href="#method-i-password_reset_instructions">#password_reset_instructions</a>
+    
+    <li ><a href="#method-i-welcome">#welcome</a>
     
   </ul>
 </div>
@@ -111,6 +115,40 @@
        </header>
 
     
+      <div id="method-i-activation_instructions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">activation_instructions</span><span
+            class="method-args">(user)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="activation_instructions-source">
+            <pre><span class="ruby-comment"># File app/models/notifier.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">activation_instructions</span>(<span class="ruby-identifier">user</span>)
+        <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">user</span>
+        <span class="ruby-identifier">mail</span>(<span class="ruby-value">:to</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">email</span>, <span class="ruby-value">:subject</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Activation Instructions&quot;</span> )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
       <div id="method-i-password_reset_instructions" class="method-detail ">
         
         <div class="method-heading">
@@ -133,8 +171,40 @@
             <pre><span class="ruby-comment"># File app/models/notifier.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">password_reset_instructions</span>(<span class="ruby-identifier">user</span>)
         <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">user</span>
-        <span class="ruby-ivar">@url</span> = <span class="ruby-string">&quot;http://0.0.0.0:3000&quot;</span>
         <span class="ruby-identifier">mail</span>(<span class="ruby-value">:to</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">email</span>, <span class="ruby-value">:subject</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Password Reset Instructions&quot;</span>)  
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-welcome" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">welcome</span><span
+            class="method-args">(user)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="welcome-source">
+            <pre><span class="ruby-comment"># File app/models/notifier.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">welcome</span>(<span class="ruby-identifier">user</span>)
+        <span class="ruby-identifier">mail</span>(<span class="ruby-value">:to</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">email</span>, <span class="ruby-value">:subject</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Welcome to AntiTheft Protection&quot;</span> )
 <span class="ruby-keyword">end</span></pre>
           </div>
           
