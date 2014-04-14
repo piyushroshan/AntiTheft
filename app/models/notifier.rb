@@ -5,16 +5,17 @@ class Notifier < ActionMailer::Base
 
 	def password_reset_instructions(user)
 		@user = user
-		mail(:to => user.email, :subject => "Password Reset Instructions")  
+		@url = "http://0.0.0.0:3000"
+		mail(:to => user.email,:from => "antitheft@gmail.com", :subject => "Password Reset Instructions")  
 	end  
 
 	def activation_instructions(user)
 		@user = user
-		mail(:to => user.email, :subject => "Activation Instructions" )
+		mail(:to => user.email,:from => "antitheft@gmail.com", :subject => "Activation Instructions" )
 	end
 
 	def welcome(user)
-		mail(:to => user.email, :subject => "Welcome to AntiTheft Protection" )
+		mail(:to => user.email,:from => "antitheft@gmail.com", :subject => "Welcome to AntiTheft Protection" )
 	end
 	# def deliver_password_reset_instructions(user)
 	# 	:to
