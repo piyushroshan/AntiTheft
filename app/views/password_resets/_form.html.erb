@@ -1,0 +1,10 @@
+<%= form_tag( url: password_resets_path ) do  %>
+
+      <%= label_tag :email %>
+      <%= text_field_tag :email %>
+
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+
+      <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
+<% end %>

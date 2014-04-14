@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  macaddress: MyString
+  nickname: MyString
+  description: MyText
+  user_id: 1
+  stolen: false
+  secret_key: MyString
+
+two:
+  macaddress: MyString
+  nickname: MyString
+  description: MyText
+  user_id: 1
+  stolen: false
+  secret_key: MyString

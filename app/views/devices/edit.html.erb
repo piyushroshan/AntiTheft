@@ -1,0 +1,51 @@
+<div class="container">
+	<%- model_class = Device -%>
+  <script type="text/javascript">
+  </script>
+	<div class="page-header">
+		<h1>Edit Device</h1>
+	</div>
+	<p id="notice"><%= notice %></p>
+
+	<%= form_tag( device_path(@device.id), :class => 'form-horizontal', :method => :put) %>
+	<div class="control-group">
+    <%= label_tag "MAC Address", nil, :class => 'control-label' %>
+    <div class="controls">
+      <%= text_field_tag :macaddress, @device.macaddress, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= label_tag "Nick Name", nil, :class => 'control-label' %>
+    <div class="controls">
+      <%= text_field_tag :nickname, @device.nickname, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= label_tag "Description", nil, :class => 'control-label' %>
+    <div class="controls">
+      <%= text_area_tag :description, @device.description, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= label_tag "Stolen", nil, :class => 'control-label' %>
+    <div class="controls">
+      <%= check_box_tag :stolen, @device.stolen, @device.stolen, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= label_tag "Secret key", nil, :class => 'control-label' %>
+    <div class="controls">
+      <%= password_field_tag :secret_key, @device.secret_key, :class => 'text_field secret_key' %>
+      <input id="showpassword" type="checkbox" /> Show
+    </div>
+  </div>
+
+  <p> </p>
+  <div class="form-actions">
+    <%= submit_tag "Update Device", :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                devices_path, :class => 'btn' %>
+  </div>
+
+  
+</div>

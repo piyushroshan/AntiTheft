@@ -1,0 +1,16 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @user_session.username %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @user_session.password %>
+</p>
+
+<%= link_to 'Edit', edit_user_session_path(@user_session) %> |
+<%= link_to 'Back', root_url %>
+</div>

@@ -1,0 +1,79 @@
+body {
+  padding-top: 50px;
+}
+.navbar{
+  color: #eee;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 18px;
+  
+  .navbar-brand{
+    font-size: 20px;
+    color: #eee;
+  }
+
+  .navbar-collapse{
+    margin-top: 5px;
+    padding-top: 10px;
+  }
+  a {
+    font-size: 16px;
+    line-height: 18px;
+    color: #eee;
+    text-decoration:none;
+    &:visited {
+      color: #eee;
+    }
+    &:hover {
+      color: #fff;
+      backgroun-color: #000;
+    }
+  }
+}
+
+.right{
+  float: right;
+}
+
+.dropdown-menu{
+  background-color: #222;
+  li{
+    background-color: #222;
+    a {
+      color: #fff;
+      &:focus{
+        background-color: #fff;
+        color: blue;
+      }
+      &:hover{
+        &:visited{
+        color: #222;
+        }
+        background-color: #fff;
+        color: red;
+      }
+      &:active{
+        background-color: #fff;
+        color: #222;
+      }
+      &:visited{
+        color: #fff;
+      }
+      text-decoration: none;
+    }
+  }
+}
+
+.dropdown>ul{
+  margin-top: 15px;
+  border-radius :5px;
+}
+
+
+.btn .btn-mini .btn-dange{
+  color: #fff;
+}
+
+.text_field{
+  width: 200px;
+}

@@ -1,0 +1,46 @@
+<div class="container">
+<%- model_class = User -%>
+<div class="page-header">
+  <h1>Registeration Form</h1>
+</div>
+<p id="notice"><%= notice %></p>
+<%= form_tag( url: create_user_path, :class => 'form-horizontal'  ) do  %>
+  <div class="control-group">
+    <%= label_tag "username",nil, :class => 'control-label' %>
+    <div class="controls">
+      <%= text_field_tag :username, nil, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= label_tag "Email",nil, :class => 'control-label' %>
+    <div class="controls">
+      <%= text_field_tag :email,nil, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= label_tag "Password",nil, :class => 'control-label' %>
+    <div class="controls">
+      <%= password_field_tag :password, nil, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= label_tag "Confirm Password", nil, :class => 'control-label' %>
+    <div class="controls">
+      <%= password_field_tag :password_confirmation, nil, :class => 'text_field' %>
+    </div>
+  </div>
+  <% if current_user and current_user.is_admin? %>
+  <div class="control-group">
+    <%= label_tag "Is Admin?", nil, :class => 'control-label' %>
+      <%= hidden_field_tag :roles_mask, 0, :id => "roles_masks" %>
+      <%= check_box_tag :roles_mask, 1, false, :class => 'text_field' %>
+  </div>
+  <% end %>
+  <p> </p>
+  <div class="form-actions">
+    <%= submit_tag nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                root_path, :class => 'btn' %>
+  </div>
+<% end %>
+</div>

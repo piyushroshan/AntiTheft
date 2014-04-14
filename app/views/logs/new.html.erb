@@ -1,0 +1,36 @@
+<div class="container">
+<%- model_class = Log -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<p id="notice"><%= notice %></p>
+<%= form_tag( create_log_path,  multipart: true ) do  %>
+  <div class="control-group">
+    <%= label_tag "MAC Address",nil, :class => 'control-label' %>
+    <div class="controls">
+      <%= text_field_tag :macaddress,nil, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= label_tag "Secret Key",nil, :class => 'control-label' %>
+    <div class="controls">
+      <%= password_field_tag :secret_key,nil, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= label_tag :log_file,nil, :class => 'control-label' %>
+    <div class="controls">
+      <%= file_field_tag :log_file, :class => 'file_field', :multiple => true %>
+    </div>
+  </div>
+  <div><p></p></div>
+
+  <div class="form-actions">
+    <%= submit_tag nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                devices_path, :class => 'btn' %>
+  </div>
+<% end %>
+</div>

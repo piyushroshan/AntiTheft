@@ -1,0 +1,38 @@
+<%= form_for @device, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :macaddress, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :macaddress, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :nickname, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :nickname, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :stolen, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :stolen, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :secret_key, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :secret_key, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                devices_path, :class => 'btn' %>
+  </div>
+<% end %>
