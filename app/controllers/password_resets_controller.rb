@@ -23,20 +23,19 @@ before_filter :load_user_using_perishable_token, :only => [:edit, :update]
 		if @user  
 			render  
 		else
-			flash[:notice] = "Token expired!!"
-			redirect_to forgot_password_url
+			redirect_to forgot_password_url, :notice => "Token expired"
 		end
 	end 
 
 	def update 
 		@user.password = params[:password]
-		@user.password_confirmation = params[:password_confirmation]
-		@user.email = params[:email]  
-		if @user.save  
+		@user.password_confirmation = params[:password_confirmation] 
+		if @user.save
+			UserSession.create(@user, false)
 			flash[:notice] = "Password successfully updated"  
 			redirect_to root_url 
 		else 
-			flash[:notice] = "Password successfully updated"
+			flash[:notice] = "Password update failed!!"
 			redirect_to password_reset_form_url  
 		end  
 	end  

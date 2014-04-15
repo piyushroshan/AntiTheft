@@ -99,6 +99,16 @@ class LogsController < ApplicationController
   end
 
 
+  def download
+    @owner = Device.find(params[:device]).user
+    if current_user == @owner
+      path = "#{Rails.root}/uploads/"+params[:device]+'/'+params[:model]+'/'+params[:id].to_s+"/"+params[:basename]+"."+params[:extension]
+      send_file path, :x_sendfile=>true
+    else
+      redirect_to devices_path, :notice => "Error!!!"
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_log

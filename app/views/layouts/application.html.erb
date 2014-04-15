@@ -21,25 +21,28 @@
 			<div class="navbar-collapse collapse">
 				<ul id="nav navbar-nav navbar-right" class="list-inline right">
 					<% if current_user %>
+					<% if current_user.is_admin? %>
+						<li><%= link_to "Devices", devices_path  %></li>
+						<li><%= link_to "Users", users_path  %></li>
+					<% else %>
+						<li><%= link_to "Devices", devices_path  %></li>
+					<% end %>
+					
 					<li class="dropdown" id="accountmenu"> 
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">My Account<b class="caret"></b></a>
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <%= current_user.username.to_s %><b class="caret"></b></a>
 
 						<ul class="dropdown-menu">
 
 							<li><%= link_to "Edit Profile", edit_user_path %></li>
-
-							<% if current_user.is_admin? %>
-							<li><%= link_to "Manage Devices", devices_path  %></li>
-							<li><%= link_to "Manage Users", users_path  %></li>
-							<% else %>
-							<li><%= link_to "My Devices", devices_path  %></li>
-							<% end %>
+							<li>
+								<%= link_to "Logout", :logout%>
+							</li>
+							
 						</ul>
 
 					</li>
-					<li>
-						<%= link_to "Logout", :logout%>
-					</li>
+					
+					
 					<% else %>
 					<li>
 						<%= link_to "Register", signup_path %>
