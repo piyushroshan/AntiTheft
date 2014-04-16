@@ -89,7 +89,7 @@ class DevicesController < ApplicationController
 
   def check_stolen
     @newdevice = Device.find_by(:macaddress => params[:macaddress])
-    logger.error(device_params.to_s)
+    #logger.error(device_params.to_s)
     if @newdevice
       respond_to do |format|
         msg = { :status => @newdevice.stolen?.to_s, :message => "Success!"}
