@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.0.rc2'
 #gem 'rails', '3.2.17'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 # Use Uglifier as compressor for JavaScript assets
@@ -46,7 +46,15 @@ gem 'bootstrap-sass-extras', '~> 0.0.5'
 gem 'role_model', '~> 0.8.1'
 gem 'carrierwave', '~> 0.10.0'
 gem 'jquery-turbolinks'
+
 group :development do
   #gem 'better_errors'
+  gem 'sqlite3'
   #gem "binding_of_caller"
+end
+
+group production do
+	gem 'execjs'
+	gem 'therubyracer'
+	gem 'mysql'
 end
