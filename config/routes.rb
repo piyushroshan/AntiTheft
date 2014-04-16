@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get '/logs/:device_id/:id' => 'logs#new', :as => :log
   get '/logs/:device_id/:id/edit' => 'logs#edit', :as => :edit_log
   get "/uploads/:device/:model/:id/:basename.:extension" => 'logs#download', :as => :download_log
+  get "/devices/stolen/:macaddress" => "devices#check_stolen", :as => :check_stolen
   
   #get '/logs/destroy_log/:id' => 'logs#destroy', :as => :log_destroy
   # The priority is based upon order of creation: first created -> highest priority.

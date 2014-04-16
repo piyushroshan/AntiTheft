@@ -37,7 +37,7 @@ class DevicesController < ApplicationController
   # POST /devices
   # POST /devices.json
   def create
-    if Device.find_by_macaddress(params[:macaddress])
+    if Device.find_by :macaddress => params[:macaddress]
       redirect_to new_device_url, :notice => 'Device already registered, If there is any issue please contact admin.'
     else
       @device = Device.new(device_params)
@@ -88,8 +88,22 @@ class DevicesController < ApplicationController
   end
 
   def check_stolen
-    @device = device.find(params[:mac_address])
-    return @device.stolen.json
+    @newdevice = Device.find_by(:macaddress => params[:macaddress])
+    logger.error(device_params.to_s)
+    if @newdevice
+      respond_to do |format|
+        msg = { :status => @newdevice.stolen?.to_s, :message => "Success!"}
+        format.html { redirect_to devices_url, :notice => "Device stolen" }
+        format.json  { render :json => msg } # don't do msg.to_json
+      end
+    else
+      respond_to do |format|
+        msg = { :status => false , :message => "Device not found!"}
+        format.html { redirect_to devices_url, :notice => "Device not found" }
+        format.json  { render :json => msg } # don't do msg.to_json
+      end
+    end
+
   end
 
   private
@@ -100,6 +114,6 @@ class DevicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def device_params
-      params.permit(:macaddress, :nickname, :description, :user_id, :stolen, :secret_key)
+      params.permit(:macaddress, :nickname, :description, :user_id, :stolen, :secret_key, :format)
     end
 end
