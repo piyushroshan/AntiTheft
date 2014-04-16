@@ -11,7 +11,7 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local       = true
   config.action_controller.perform_caching = true
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
@@ -80,4 +80,11 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+    # Raises error for missing translations
+  # config.action_view.raise_on_missing_translations = true
+  config.action_mailer.raise_delivery_errors = false
+
+  # set delivery method to :smtp, :sendmail or :test
+  config.action_mailer.delivery_method = :sendmail
 end
