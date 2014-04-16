@@ -53,7 +53,7 @@ group :development do
   #gem "binding_of_caller"
 end
 
-group production do
+group :production do
 	gem 'execjs'
 	gem 'therubyracer'
 	gem 'mysql'
