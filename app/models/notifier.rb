@@ -1,11 +1,11 @@
 # app/models/notifier.rb  
 class Notifier < ActionMailer::Base  
-	default_url_options[:host] = "http://antitheft.com"  
+	default_url_options[:host] = "http://antitheft.athena.nitc.ac.in"  
 	default :from => "noreply@antitheft.com"  
 
 	def password_reset_instructions(user)
 		@user = user
-		@url = "http://antitheft.com"
+		@url = "http://antitheft.athena.nitc.ac.in"
 		mail(:to => user.email,:from => "noreply@antitheft.com", :subject => "Password Reset Instructions")  
 	end  
 
