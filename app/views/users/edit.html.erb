@@ -36,7 +36,7 @@
       <%= check_box_tag :roles_mask, 1, @user.is_admin?, :class => 'text_field' %>
   </div>
     <div class="control-group">
-    <%= label_tag "Is Admin?", nil, :class => 'control-label' %>
+    <%= label_tag "Is Active?", nil, :class => 'control-label' %>
       <%= hidden_field_tag :active, 0, :id => "active_user" %>
       <%= check_box_tag :active, 1, @user.active?, :class => 'text_field', :id => "active_user" %>
   </div>
