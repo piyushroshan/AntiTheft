@@ -37,16 +37,8 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   # set delivery method to :smtp, :sendmail or :test
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :sendmail
 
   # these options are only needed if you choose smtp delivery
-  config.action_mailer.smtp_settings = {
-    :address        => 'smtp.gmail.com',
-    :port           => 587,
-    :domain         => 'gmail.com',
-    :authentication => :plain,
-    :user_name      => 'roshanpiyush@gmail.com',
-    :password       => 'securepiyush1',
-    :enable_starttls_auto => true
-}
+  
 end
