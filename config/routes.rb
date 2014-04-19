@@ -25,8 +25,10 @@ Rails.application.routes.draw do
   get '/denied' => 'users#deny', :as => :denied
   get '/logs/add_log' => 'logs#new', :as => :new_log
   post '/logs/add_log' => 'logs#create', :as => :create_log
+  get '/logs/:device_id/' => 'logs#index', :as => :index_logs
   delete '/logs/:device_id/:id' => 'logs#destroy', :as => :delete_log
-  get '/logs/:device_id' => 'logs#index', :as => :index_logs
+  
+  #get '/logs/:device_id/:page' => 'logs#index', :as => :index_logs_page
   get '/logs/:device_id/:id' => 'logs#new', :as => :log
   get '/logs/:device_id/:id/edit' => 'logs#edit', :as => :edit_log
   get "/uploads/:device/:model/:id/:basename.:extension" => 'logs#download', :as => :download_log

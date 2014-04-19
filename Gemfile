@@ -39,7 +39,7 @@ gem 'scrypt', '~> 1.2.1'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
+gem 'will_paginate', '~> 3.0.5'
 gem 'authlogic'
 gem 'bootstrap-sass', '~> 3.1.1.0'
 gem 'bootstrap-sass-extras', '~> 0.0.5'

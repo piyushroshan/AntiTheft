@@ -36,7 +36,7 @@
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
           edit_device_path(device), :class => 'btn btn-mini' %>
-          <%=link_to "Logs", index_logs_path(device) , :class => 'btn btn-mini btn-primary'%>
+          <%=link_to "Logs", index_logs_path(device,:page => 1) , :class => 'btn btn-mini btn-primary'%>
         </td>
         <td>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

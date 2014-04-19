@@ -12,7 +12,7 @@ class LogsController < ApplicationController
       else
         @devices = Device.where(:user_id => current_user.id)
       end
-      @logs = Log.where(:device_id => @device.id)
+      @logs = Log.where(:device_id => @device.id).paginate(:page => params[:page], :per_page => 5)
     else
       redirect_to devices_path, :notice => "You can only view logs of your devices"
     end
@@ -45,8 +45,8 @@ class LogsController < ApplicationController
     if @device.secret_key == params[:secret_key]
       respond_to do |format|
         if @log.save
-          format.html { redirect_to index_logs_path(@device.id), notice: 'Log was successfully created.' }
-          format.json { render action: 'show', status: :created, location: index_logs_path(params[:device_id]) }
+          format.html { redirect_to index_logs_path(@device.id, :page => 1), notice: 'Log was successfully created.' }
+          format.json { render action: 'show', status: :created, location: index_logs_path(params[:device_id], :page =>1) }
         else
           format.html { render action: 'new' }
           format.json { render json: @log.errors, status: :unprocessable_entity }
@@ -77,7 +77,7 @@ class LogsController < ApplicationController
     @log = Log.find(params[:id])
     @log.destroy
     respond_to do |format|
-      format.html { redirect_to index_logs_path(params[:device_id]) }
+      format.html { redirect_to index_logs_path(params[:device_id], :page => 1) }
       format.json { head :no_content }
     end
   end
@@ -117,6 +117,6 @@ class LogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def log_params
-      params.permit(:macaddress, :secret_key, :log_file)
+      params.permit(:macaddress, :secret_key, :log_file, :page)
     end
 end

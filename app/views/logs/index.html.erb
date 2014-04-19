@@ -1,4 +1,5 @@
 <div class="container">
+  <%= stylesheet_link_tag "pagination" %>
 <%- model_class = Log -%>
 <div class="page-header">
   <h1>Logs for <%= @device.nickname %></h1>
@@ -35,9 +36,19 @@
   </tbody>
 </table>
 
+<div class="flickr_pagination">
+    <div class="page_info">
+      <%= page_entries_info @logs %>
+    </div>
+    <%= will_paginate @logs, :container => false %>
+</div>
+
+<p> </p>
+<div class="links_control">
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_log_path,
             :class => 'btn btn-primary' %>
 
 <%= link_to "Back", devices_path, :class => 'btn btn-primary' %>
+<div>
 </div>
