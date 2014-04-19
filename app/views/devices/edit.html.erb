@@ -28,12 +28,13 @@
   </div>
   <div class="control-group">
     <%= label_tag "Stolen", nil, :class => 'control-label' %>
-      <%= check_box_tag :stolen, @device.stolen, @device.stolen, :class => 'text_field' %>
+      <%= hidden_field_tag :stolen, 0 ,  :id => 'stolen' %>
+      <%= check_box_tag :stolen,1, @device.stolen, :class => 'text_field' %>
   </div>
   <div class="control-group">
     <%= label_tag "Secret key", nil, :class => 'control-label' %>
     <div class="controls">
-      <%= password_field_tag :secret_key, @device.secret_key, :class => 'text_field secret_key' %>
+      <%= password_field_tag :secret_key, @device.secret_key, :class => 'text_field secret_key', disabled: true %>
       <input id="showpassword" type="checkbox" /> Show
     </div>
   </div>
